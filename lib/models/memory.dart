@@ -4,7 +4,7 @@ class Memory {
   final _buffer = [0.0, 0.0];
   int _bufferIndex = 0;
   String _operation;
-  String _value = '0';
+  String _value = '';
   bool _wipeValue = false;
   String _lastCommand;
 
@@ -37,7 +37,7 @@ class Memory {
       if (!isEqualSign) {
         _operation = newOperation;
         _bufferIndex = 1;
-        _wipeValue = true;
+        //_wipeValue = true;
       }
     } else {
       _buffer[0] = _calculate();
@@ -71,6 +71,7 @@ class Memory {
   _allClear() {
     _value = '0';
     _buffer.setAll(0, [0.0, 0.0]);
+    _bufferIndex = 0;
     _operation = null;
     _wipeValue = false;
   }
